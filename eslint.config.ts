@@ -10,14 +10,23 @@ export default [
     },
     js.configs.recommended,
     {
+        languageOptions: {
+            globals: {
+                process: 'readonly',
+                console: 'readonly',
+                require: 'readonly',
+                module: 'readonly',
+                __dirname: 'readonly',
+                __filename: 'readonly',
+                exports: 'writable',
+            },
+        },
+    },
+    {
         files: ['**/*.ts'],
         ignores: ['**/*.config.ts'],
         languageOptions: {
             parser: tsParser,
-            globals: {
-                process: 'readonly',
-                console: 'readonly',
-            },
         },
         plugins: {
             '@typescript-eslint': ts,
